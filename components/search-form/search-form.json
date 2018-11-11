@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "location-picker": "/components/location-picker/location-picker"
+  }
+}

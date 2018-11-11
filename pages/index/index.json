@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "search-form": "/components/search-form/search-form",
+    "trip-card": "/components/trip-card/trip-card"
+  }
+}

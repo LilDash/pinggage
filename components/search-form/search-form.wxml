@@ -1,0 +1,10 @@
+<form class="search-form" bindsubmit="formSubmit" bindreset="formReset"> 
+  <view class="flex-row search-form-location">
+    <location-picker class="search-form-location-picker" title="出发地" />
+    <i class="search-form-location-swap"> -> </i>
+    <location-picker class="search-form-location-picker" title="目的地" />
+  </view>
+  <view class="search-form-btn">
+    <button class="search-form-btn-submit" formType="submit">找空箱</button>
+  </view>
+</form>

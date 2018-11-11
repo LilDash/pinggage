@@ -1,0 +1,30 @@
+.flex-column {
+  display: flex; 
+  flex-direction: column;
+}
+
+.flex-row {
+  display: flex; 
+  flex-direction: row;
+}
+
+.search-form-location {
+  padding: 68rpx 0;
+}
+.search-form-location-picker {
+  width:40%;
+}
+
+.search-form-location-swap {
+  width: 20%;
+  text-align: center;
+}
+
+.search-form-btn {
+  padding: 10rpx 50rpx;
+}
+
+.search-form-btn-submit {
+  color: #fff;
+  background-color: rgba(230, 67, 64, 0.8);
+}

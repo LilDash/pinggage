@@ -1,0 +1,4 @@
+/* components/location-picker/location-picker.wxss */
+.location-picker {
+  text-align: center;
+}

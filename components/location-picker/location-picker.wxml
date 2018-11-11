@@ -1,0 +1,3 @@
+<picker class="location-picker" mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{locationIndex}}" range="{{locationArray}}">
+  <view class="picker">{{title}}</view>
+</picker>

@@ -1,0 +1,37 @@
+<view class="trip-card">
+  <view class="flex-row user-info">
+    <image src="/images/icon-default-avatar.png" class="avatar" />
+    <view class="flex-column user-info-profile">
+      <view class="user-info-name">{{trip.userInfo.name}}</view>
+      <view class="flex-row">
+        <view class="user-info-tripcount">完成{{trip.userInfo.tripCount}}次 - </view>
+        <view class="user-info-rating">评价:{{trip.userInfo.rating}}</view>
+      </view>
+      <view class="user-info-publishtime">发布时间:{{trip.publishTime}}</view>   
+    </view>
+  </view>
+  <view class="flex-row">
+    <view class="flex-column trip-info">
+      <view class="trip-info-location">
+        <text class="trip-info-location-city">{{trip.tripInfo.depCity}}</text>
+        <i class="flight-icon" />  
+        <text class="trip-info-location-city">{{trip.tripInfo.arrCity}}</text>
+      </view>
+      <view class="trip-info-time">出发时间: {{trip.tripInfo.date}}</view>
+    </view>
+    <view class="flex-column luggage-info">
+      <view class="luggage-info-price">
+        <text>
+          容量单价: <text class="luggage-info-price-amount">￥50</text>/kg
+        </text>
+      </view>
+      <view class="luggage-info-capacity">
+        <progress class="luggage-info-capacity-bar" percent="40" stroke-width="6" border-radius="8" activeColor="rgba(230, 67, 64, 0.8)"  active />
+        <text>
+          剩余容量: <text class="luggage-info-capacity-remain">8</text>kg/20kg
+        </text>
+      </view>
+    </view>
+    
+  </view>
+</view>
