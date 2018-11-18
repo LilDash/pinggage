@@ -14,7 +14,7 @@ Component({
       observer: function (newVal, oldVal, changedPath) {
         this._initialLocationArray(newVal);        
       }
-    }
+    },
   },
 
   /**
@@ -42,7 +42,12 @@ Component({
       this.setData({
         country: this.properties.locations[countryIndex].countryDisplayName,
         city: cityIndex < 0 ? this.data.textAll : this.properties.locations[countryIndex].cities[cityIndex].cityDisplayName,
-      })
+      });
+
+      this.triggerEvent('onLocationChange', {
+        countryId: this.properties.locations[countryIndex].countryId,
+        cityId: cityIndex < 0 ? 0 : this.properties.locations[countryIndex].cities[cityIndex].cityId,
+      });
     },
 
     onColumnChange: function (e) {

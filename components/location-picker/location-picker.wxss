@@ -3,9 +3,9 @@
   text-align: center;
 }
 
-.location-picker-city {
+.location-picker-country {
   margin: 5px 0px;
 }
-.location-picker-country {
+.location-picker-city {
   font-size: 25rpx;
 }
