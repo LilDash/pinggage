@@ -1,3 +1,5 @@
-<picker class="location-picker" mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{locationIndex}}" range="{{locationArray}}">
-  <view class="picker">{{title}}</view>
+<picker class="location-picker" mode="multiSelector" bindchange="onChange" bindcolumnchange="onColumnChange" value="{{locationIndex}}" range="{{locationArray}}">
+  <view class="location-picker-city" wx:if="{{city==''}}">{{title}}</view>
+  <view class="location-picker-city" wx:else>{{city}}</view>
+  <view class="location-picker-country">{{country}}</view>
 </picker>

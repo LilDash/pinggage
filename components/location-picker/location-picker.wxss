@@ -2,3 +2,10 @@
 .location-picker {
   text-align: center;
 }
+
+.location-picker-city {
+  margin: 5px 0px;
+}
+.location-picker-country {
+  font-size: 25rpx;
+}

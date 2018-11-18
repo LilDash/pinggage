@@ -1,3 +1,6 @@
+const tripService = require('../../services/tripService.js')
+const locationService = require('../../services/locationService.js')
+
 //index.js
 //获取应用实例
 const app = getApp()
@@ -115,6 +118,9 @@ Page({
         }
       })
     }
+
+    //tripService.getTripList(1)
+    // locationService.getCountryCities();
   },
   getUserInfo: function(e) {
     console.log(e)
