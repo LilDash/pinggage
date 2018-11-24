@@ -11,10 +11,10 @@
     <text class="user-motto">{{motto}}</text>
   </view> -->
   <view class="search-form-wrap">
-    <search-form />
+    <search-form bind:onSearchFormSubmit="onSearchFormSubmit"/>
   </view>
   <view class="trip-list">
-    <view class="trip-car-wrap" wx:for="{{tripList}}" wx:for-item="trip">
+    <view class="trip-car-wrap" wx:for="{{trips}}" wx:for-item="trip">
       <trip-card trip="{{trip}}"  /> 
     </view>
   </view>

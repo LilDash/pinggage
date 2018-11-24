@@ -1,5 +1,5 @@
 // components/search-form/search-form.js
-
+const tripService = require('../../services/tripService.js')
 const locationService = require('../../services/locationService.js')
 
 Component({
@@ -19,6 +19,7 @@ Component({
     departureCityId: 0,
     arrivalCountryId: 0,
     arrivalCityId: 0,
+    isLoading: false,
   },
 
   ready: function () {
@@ -46,6 +47,30 @@ Component({
         'arrivalCountryId': e.detail.countryId,
         'arrivalCityId': e.detail.cityId,
       })
+    },
+
+    onFormSubmit: function(e) {
+      this.setData({'isLoading': true});
+      tripService.searchTrips(
+        this.data.departureCountryId, 
+        this.data.departureCityId, 
+        this.data.arrivalCountryId, 
+        this.data.arrivalCityId, 0, (res) => {
+        this.triggerEvent('onSearchFormSubmit', {
+          trips: res,
+        });
+        this.setData({
+          'isLoading': false,
+        })
+      });
+
+    },
+
+    onFormReset: function(e) {
+      
     }
+
+
+
   }
 })

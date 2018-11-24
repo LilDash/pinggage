@@ -11,79 +11,7 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    tripList: [
-      {
-        id: 1,
-        publishTime: "2018-11-01",
-        userInfo: {
-          name: "Dash&KK",
-          tripCount: 13,
-          rating: 3,
-        },
-        tripInfo: {
-          depCity: "广州",
-          arrCity: "曼谷",
-          date: "2018-11-01",
-        }
-      },
-      {
-        id: 2,
-        publishTime: "2018-11-02",
-        userInfo: {
-          name: "Dash跑得快",
-          tripCount: 13,
-          rating: 4,
-        },
-        tripInfo: {
-          depCity: "广州",
-          arrCity: "北京",
-          date: "2018-11-01",
-        }
-      },
-      {
-        id: 3,
-        publishTime: "2018-11-09",
-        userInfo: {
-          name: "Dash",
-          tripCount: 13,
-          rating: 5,
-        },
-        tripInfo: {
-          depCity: "莫斯科",
-          arrCity: "香港",
-          date: "2018-11-01",
-        }
-      },
-      {
-        id: 4,
-        publishTime: "2018-11-01",
-        userInfo: {
-          name: "Dash速递",
-          tripCount: 13,
-          rating: 3.5,
-        },
-        tripInfo: {
-          depCity: "圣安地列斯圣安地",
-          arrCity: "叶卡捷琳堡宝宝",
-          date: "2018-11-01",
-        }
-      },
-      {
-        id: 5,
-        publishTime: "2018-11-01",
-        userInfo: {
-          name: "Dash会飞",
-          tripCount: 13,
-          rating: 5,
-        },
-        tripInfo: {
-          depCity: "广州",
-          arrCity: "圣彼得堡",
-          date: "2018-11-01",
-        }
-      }
-
-    ]
+    trips: [],
   },
   //事件处理函数
   bindViewTap: function() {
@@ -119,8 +47,12 @@ Page({
       })
     }
 
-    //tripService.getTripList(1)
-    // locationService.getCountryCities();
+    //Load trip list
+    tripService.searchTrips(0, 0, 0, 0, 0, (res) => {
+      this.setData({
+        'trips': res,
+      })
+    });
   },
   getUserInfo: function(e) {
     console.log(e)
@@ -128,6 +60,12 @@ Page({
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
+    })
+  },
+
+  onSearchFormSubmit: function(e) {
+    this.setData({
+      'trips': e.detail.trips,
     })
   }
 })

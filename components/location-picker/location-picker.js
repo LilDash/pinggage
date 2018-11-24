@@ -25,7 +25,6 @@ Component({
     locationIndex: [0, 0],
     country: "",
     city: "",
-    textAll: "不限",
   },
 
   ready: function () {
@@ -38,15 +37,15 @@ Component({
   methods: {
     onChange: function (e) {
       const countryIndex = e.detail.value[0];
-      const cityIndex = e.detail.value[1] - 1; // First element is '不限'
+      const cityIndex = e.detail.value[1];
       this.setData({
         country: this.properties.locations[countryIndex].countryDisplayName,
-        city: cityIndex < 0 ? this.data.textAll : this.properties.locations[countryIndex].cities[cityIndex].cityDisplayName,
+        city: this.properties.locations[countryIndex].cities[cityIndex].cityDisplayName,
       });
 
       this.triggerEvent('onLocationChange', {
         countryId: this.properties.locations[countryIndex].countryId,
-        cityId: cityIndex < 0 ? 0 : this.properties.locations[countryIndex].cities[cityIndex].cityId,
+        cityId: this.properties.locations[countryIndex].cities[cityIndex].cityId,
       });
     },
 
@@ -75,11 +74,11 @@ Component({
 
     _updateLocationArray: function (countryIndex) {
       const locationArray = this.data.locationArray;
-      const newCitiesArray = [this.data.textAll];
+      const newCitiesArray = [];
       const country = this.properties.locations[countryIndex];
-      for(var i in country.cities) {
+      for (var i in country.cities) {
         newCitiesArray.push(country.cities[i].cityDisplayName);
-      }   
+      }
       locationArray[1] = newCitiesArray;
       const locationIndex = [countryIndex, 0];
       this.setData({
