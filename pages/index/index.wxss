@@ -9,3 +9,9 @@
   width: 100%;
   margin: 50rpx 0;
 }
+
+.trip-list-empty {
+  text-align:center;
+  font-size:30rpx;
+
+}
