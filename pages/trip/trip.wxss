@@ -1,0 +1,25 @@
+/* pages/trip/trip.wxss */
+
+.trip-info-location-city {
+  display: inline-block;
+  font-size: 38rpx;
+  padding: 6px 10px;
+  color: #444444;
+  overflow: hidden;
+  font-weight: 800;
+  white-space:nowrap;   
+  text-overflow: ellipsis; 
+  max-width: 120rpx;
+  vertical-align: middle;
+}
+
+.trip-info-location .flight-icon {
+  display: inline-block;
+  width: 35rpx;
+  height: 35rpx;
+  margin: 0 20rpx;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACyklEQVRYR8WXT0gUcRTHv28mt1AEZygI6RCts11KjKBTZDcp6M8hpCSqiy0706EggoIogiDwUFnzM6NLXiIvUVFEBHWJDkZ/EWpn81BIheLstiqF7rxYcV1Hd92ZWdmd6++97/v8vrzf+/2GUOWPqlwfngEUYZ0j4HIWmBlnbUO7shzwPgCGmgmZj7NFJ//KNU2T0fU/y4XwDJAtpJrxYRA1zrgA3Ld17WBFARRhCQJiuaJMtN2ONb0uB8KXA8rNb7tJcp7MFWT+MrZG24R2ygSF8AWA/sGQMlqTJlAoV9ABTiV17VplAAAopvWICHvyBTk9JfOGdHTjaBAIfw5kG1EkjgPcO78YM/psQztaFkCDsFpBoGRd/QCOrJ0oJlZ743vjKvnf8ML1aZa2/THCA34h5hxQzPh7ImpxgDtJXetcSkgR1jsCtrhcAH+yY1oLiNgPRB5AxLsIdDqbnGG0pQzteTEh1UxcAvH5hetM0O2Y1hMIQO2x2sB4NjtqRxySOoic6YJijBYJuLoIgJF0WDpAslP4WDKYZOmDHQ2ncrn5Juy2VioyjxPRCj87CBA7mYG0L6WHX2RzXadAEdZLAnYGEPWVwozPtqE1FwJ4RUCrL7UAwQwesvVI2A3Q96tOGU+nCJADaHpPYZ5g0CHb0B67ABpEYr8EfjCjxPidIelw8SakzRK4u2ATytxOTFNFmrd4Eypm/BYRRZl5mph2jJ3Q3hQ/htZFEC4UADBsQxPe7ZjXhKpp/QBhHYPP2HqkaykRVVhvAWxd1kHklbq+9+vqmow0sjC+7FHsFUA1E50gvu2O57tjeuSYV435cb5vQ0VYDwnYmxep5HXcPxhSR0M2gNocgMN8MmlErgfZ/aJBVEpEEYldBH46F1fpJ1nVH6WuZznzPduIdJRyrdS65yZURJV/TFy/Zh6GVamd59Y9O+BV0G9c1QH+A5KrHTAF7T1PAAAAAElFTkSuQmCC);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  vertical-align: middle;
+}

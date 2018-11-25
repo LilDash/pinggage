@@ -1,3 +1,4 @@
+<navigator url="/pages/trip/trip?id={{trip.id}}" hover-class="navigator-hover">
 <view class="trip-card">
   <view class="flex-row user-info">
     <image src="/images/icon-default-avatar.png" class="avatar" />
@@ -35,3 +36,4 @@
     
   </view>
 </view>
+</navigator>

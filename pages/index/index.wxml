@@ -18,7 +18,7 @@
       <trip-card trip="{{trip}}"  /> 
     </view>
   </view>
-  <view class="trip-list" ws:else>
+  <view class="trip-list" wx:else>
     <view class="trip-list-empty">
       ╮(╯▽╰)╭暂时找不到了
     </view>
