@@ -1,4 +1,28 @@
 /* pages/trip/trip.wxss */
+.container {
+  background-color: #f6f8f9;
+}
+
+.flex-column {
+  display: flex; 
+  flex-direction: column;
+}
+
+.flex-row {
+  display: flex; 
+  flex-direction: row;
+}
+
+.section {
+  width: 100%;
+  margin: 0 0 12px 0;
+  background-color: #ffffff;
+}
+.info-wrap {
+  padding: 50rpx 38rpx;
+  font-size:30rpx;
+  color: #444444;
+}
 
 .trip-info-location-city {
   display: inline-block;
@@ -22,4 +46,65 @@
   background-repeat: no-repeat;
   background-size: 100%;
   vertical-align: middle;
+}
+
+
+.luggage-info-price {
+  font-size:30rpx;
+  line-height:28rpx;
+  padding:0 0 30rpx 0;
+}
+
+.luggage-info-price-amount {
+  font-size: 38rpx;
+  color: rgba(230, 67, 64, 0.8);
+}
+
+.luggage-info-capacity {
+  line-height: 18rpx;
+}
+
+.luggage-info-capacity-bar {
+  width: 100%;
+}
+
+.luggage-info-capacity text {
+  font-size: 30rpx;
+}
+
+.luggage-info-capacity .luggage-info-capacity-remain {
+  font-size: 28rpx;
+  color: rgba(230, 67, 64, 0.8);
+}
+
+
+
+.user-info-wrap .avatar {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.user-info-profile {
+  padding: 0 14px;
+  color: #888888;
+}
+
+.user-info-name {
+  font-size: 28rpx;
+  color: #444444;
+  padding: 0 0 4px 0;
+}
+
+.user-info-tripcount {
+  font-size: 24rpx;
+}
+.user-info-rating {
+  font-size: 24rpx;
+}
+.user-info-publishtime {
+  font-size: 22rpx;
+}
+
+.contact-info-wrap {
+
 }

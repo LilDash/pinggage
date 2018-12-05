@@ -1,47 +1,58 @@
 <!--pages/trip/trip.wxml-->
 <view class="container">
-  
-  <view class="trip-info-wrap">
-    <view class="trip-info-location">
-      <text class="trip-info-location-city">{{trip.departureCityName}}</text>
-      <i class="flight-icon" />  
-      <text class="trip-info-location-city">{{trip.arrivalCityName}}</text>
-    </view>
-    <view class="trip-info-time">
-      <text class="trip-info-time-departure">{{trip.departureTime}}</text>
-      <text class="trip-info-time-pickup">{{trip.pickupTime}}</text>
-    </view>
-  </view>
-  <view class="luggage-info-wrap" >
-    <view class="luggage-info-price">
-        <text>
-          容量单价: <text class="luggage-info-price-amount">￥{{trip.capacityPrice}}</text>/kg
-        </text>
+  <view class="section">
+    <view class="trip-info-wrap info-wrap">
+      <view class="trip-info-location">
+        <text class="trip-info-location-city">{{trip.departureCityName}}</text>
+        <i class="flight-icon" />  
+        <text class="trip-info-location-city">{{trip.arrivalCityName}}</text>
       </view>
-      <view class="luggage-info-capacity">
-        <progress class="luggage-info-capacity-bar" percent="40" stroke-width="6" border-radius="8" activeColor="rgba(230, 67, 64, 0.8)"  active />
-        <text>
-          剩余容量: <text class="luggage-info-capacity-remain">{{trip.remainingCapacity}}</text>kg/{{trip.totalCapacity}}kg
-        </text>
+      <view class="trip-info-time">
+        <text class="trip-info-time-departure">{{trip.departureTime}}</text>
+        <text class="trip-info-time-pickup">{{trip.pickupTime}}</text>
       </view>
-  </view>
-  <view class="user-info-wrap" >
-    <image src="/images/icon-default-avatar.png" class="avatar" />
-    <view class="flex-column user-info-profile">
-      <view class="user-info-name">{{trip.nickname}}</view>
-      <view class="flex-row">
-        <view class="user-info-tripcount">完成{{9}}次 - </view>
-        <view class="user-info-rating">评价:{{5}}</view>
-      </view>
-      <view class="user-info-publishtime">发布时间:{{trip.recCreatedWhen}}</view>  
-      <view class="user-info-memo">留言:{{trip.memo}}</view>   
     </view>
   </view>
-  <view class="contact-info-wrap">
-    <text>微信号： Lil_Dash </text>
+  <view class="section">
+    <view class="luggage-info-wrap info-wrap" >
+      <view class="luggage-info-price">
+          <text>
+            容量单价: <text class="luggage-info-price-amount">￥{{trip.capacityPrice}}</text>/kg
+          </text>
+        </view>
+        <view class="luggage-info-capacity">
+          <progress class="luggage-info-capacity-bar" percent="{{trip.remainingCapacity/trip.totalCapacity*100}}" stroke-width="8" border-radius="8" activeColor="rgba(230, 67, 64, 0.8)"  active />
+          <text>
+            剩余容量: <text class="luggage-info-capacity-remain">{{trip.remainingCapacity}}</text>kg/{{trip.totalCapacity}}kg
+          </text>
+        </view>
+    </view>
   </view>
-  <view class="notes-info-wrap">
-    <text>好多字好多字好多字好多字好多字</text>
+  <view class="section">
+    <view class="user-info-wrap info-wrap flex-row" >
+      <image src="/images/icon-default-avatar.png" class="avatar" />
+      <view class="flex-column user-info-profile">
+        <view class="user-info-name">{{trip.nickname}}</view>
+        <view class="flex-row">
+          <view class="user-info-tripcount">完成{{9}}次 - </view>
+          <view class="user-info-rating">评价:{{5}}</view>
+        </view>
+        <view class="user-info-publishtime">发布时间:{{trip.recCreatedWhen}}</view>   
+      </view>
+    </view>
+  </view>
+  <view class="section">
+    <view class="contact-info-wrap info-wrap">
+      <text>微信号：Lil_Dash </text>
+    </view>
+  </view>
+  <view class="section">
+    <view class="memo-info-wrap info-wrap">留言:{{trip.memo}}</view>  
+  </view>
+  <view class="section">
+    <view class="notes-info-wrap info-wrap">
+      <text>免责声明及注意事项：</text>
+    </view>
   </view>
 </view>
 
