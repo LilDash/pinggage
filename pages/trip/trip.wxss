@@ -23,7 +23,9 @@
   font-size:30rpx;
   color: #444444;
 }
-
+.trip-info-location {
+  text-align: center;
+}
 .trip-info-location-city {
   display: inline-block;
   font-size: 38rpx;
@@ -48,6 +50,15 @@
   vertical-align: middle;
 }
 
+.trip-info-time {
+  text-align:center;
+  margin:10px;
+
+}
+
+.trip-info-time-departure,.trip-info-time-pickup {
+  margin: 0 20rpx;
+}
 
 .luggage-info-price {
   font-size:30rpx;
@@ -103,8 +114,4 @@
 }
 .user-info-publishtime {
   font-size: 22rpx;
-}
-
-.contact-info-wrap {
-
 }

@@ -67,5 +67,19 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  onTapContact: function (e) {
+    var self = this;
+    wx.setClipboardData({
+      data: "As",// TODO: 
+      success: function (res) {
+        wx.showToast({
+          title: '复制成功',
+          icon: 'success',
+          duration: 1500
+        })
+      }
+    });
   }
 })

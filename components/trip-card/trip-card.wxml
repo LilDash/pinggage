@@ -1,35 +1,35 @@
-<navigator url="/pages/trip/trip?id={{trip.id}}" hover-class="navigator-hover">
+<navigator url="/pages/trip/trip?id={{trip.tripInfo.id}}" hover-class="navigator-hover">
 <view class="trip-card">
   <view class="flex-row user-info">
     <image src="/images/icon-default-avatar.png" class="avatar" />
     <view class="flex-column user-info-profile">
-      <view class="user-info-name">{{trip.nickname}}</view>
+      <view class="user-info-name">{{trip.userInfo.nickname}}</view>
       <view class="flex-row">
-        <view class="user-info-tripcount">完成{{9}}次 - </view>
-        <view class="user-info-rating">评价:{{5}}</view>
+        <view class="user-info-tripcount">完成{{trip.userInfo.tripsNum}}次 - </view>
+        <view class="user-info-rating">评价:{{trip.userInfo.rating}}</view>
       </view>
-      <view class="user-info-publishtime">发布时间:{{trip.recCreatedWhen}}</view>   
+      <view class="user-info-publishtime">发布时间:{{trip.tripInfo.recCreatedWhen}}</view>   
     </view>
   </view>
   <view class="flex-row">
     <view class="flex-column trip-info">
       <view class="trip-info-location">
-        <text class="trip-info-location-city">{{trip.departureCityName}}</text>
+        <text class="trip-info-location-city">{{trip.tripInfo.departureCityName}}</text>
         <i class="flight-icon" />  
-        <text class="trip-info-location-city">{{trip.arrivalCityName}}</text>
+        <text class="trip-info-location-city">{{trip.tripInfo.arrivalCityName}}</text>
       </view>
-      <view class="trip-info-time">出发时间: {{trip.departureTime}}</view>
+      <view class="trip-info-time">出发时间: {{trip.tripInfo.departureTime}}</view>
     </view>
     <view class="flex-column luggage-info">
       <view class="luggage-info-price">
         <text>
-          容量单价: <text class="luggage-info-price-amount">￥{{trip.capacityPrice}}</text>/kg
+          容量单价: <text class="luggage-info-price-amount">￥{{trip.tripInfo.capacityPrice}}</text>/kg
         </text>
       </view>
       <view class="luggage-info-capacity">
-        <progress class="luggage-info-capacity-bar" percent="{{trip.remainingCapacity/trip.totalCapacity*100}}" stroke-width="6" border-radius="8" activeColor="rgba(230, 67, 64, 0.8)"  active />
+        <progress class="luggage-info-capacity-bar" percent="{{trip.tripInfo.remainingCapacity/trip.tripInfo.totalCapacity*100}}" stroke-width="6" border-radius="8" activeColor="rgba(230, 67, 64, 0.8)"  active />
         <text>
-          剩余容量: <text class="luggage-info-capacity-remain">{{trip.remainingCapacity}}</text>kg/{{trip.totalCapacity}}kg
+          剩余容量: <text class="luggage-info-capacity-remain">{{trip.tripInfo.remainingCapacity}}</text>kg/{{trip.tripInfo.totalCapacity}}kg
         </text>
       </view>
     </view>
