@@ -37,9 +37,9 @@ const getTrip = (tripId, callback) => {
 }
 
 const formatValues = (tripData) => {
-  tripData.departureTime = util.formatTimestampToDate(tripData.departureTime);
-  tripData.pickupTime = util.formatTimestampToDate(tripData.pickupTime);
-  tripData.recCreatedWhen = util.formatTimestampToDate(tripData.recCreatedWhen);
+  tripData.tripInfo.departureTime = util.formatTimestampToDate(tripData.tripInfo.departureTime);
+  tripData.tripInfo.pickupTime = util.formatTimestampToDate(tripData.tripInfo.pickupTime);
+  tripData.tripInfo.recCreatedWhen = util.formatTimestampToDate(tripData.tripInfo.recCreatedWhen);
   return tripData;
 }
 
