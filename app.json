@@ -2,9 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/logs/logs",
-    "pages/carrier/index",
-    "pages/applicant/index",
-    "pages/trip/trip"
+    "pages/trip/trip",
+    "pages/publish/publish"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -26,7 +25,7 @@
       },
       {
         "text": "发布空箱",
-        "pagePath": "pages/carrier/index",
+        "pagePath": "pages/publish/publish",
         "iconPath": "images/icon-luggage.png",
         "selectedIconPath": "images/icon-luggage.png"
       }

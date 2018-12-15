@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "search-form": "/components/search-form/search-form",
+    "location-picker": "/components/location-picker/location-picker"
+  }
+}

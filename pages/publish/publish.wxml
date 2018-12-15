@@ -1,0 +1,65 @@
+<!--pages/publish/publish.wxml-->
+<view class="container">
+  <form class="publish-form" bindsubmit="formSubmit" bindreset="formReset">
+    <view class="section flex-row">
+      <location-picker class="publish-form-location-picker" title="出发地" locations="{{countryCities}}" bind:onLocationChange="onDepartureLocationSeleted"/>
+      <i class="publish-form-location-swap"> -> </i>
+      <location-picker class="publish-form-location-picker" title="目的地" locations="{{countryCities}}" bind:onLocationChange="onArrivalLocationSeleted"/>
+    </view>
+    <view class="section flex-row">
+      <view class="field-name">出发日期</view>
+      <view class="field-value">
+        <picker
+          class="date-picker"
+          mode="date"
+          value="{{todayDate}}"
+          start="{{todayDate}}"
+          end="{{endDate}}"
+          bindchange="onDepartureDateChange"
+        >
+          <view class="picker"> {{departureDate}} </view>
+        </picker>
+      </view>
+    </view>
+    <view class="section flex-row">
+      <view class="field-name ">到达日期</view>
+      <view class="field-value">
+        <picker
+          class="date-picker"
+          mode="date"
+          value="{{todayDate}}"
+          start="{{todayDate}}"
+          end="{{endDate}}"
+          bindchange="onArrivalDateChange"
+        >
+          <view class="picker"> {{arrivalDate}} </view>
+        </picker>
+      </view>
+    </view>
+    <view class="section flex-row">
+      <view class="field-name">航班号</view>
+      <view class="field-value flex-row"><input name="input" placeholder="" /></view>
+    </view>
+    <view class="section flex-row">
+      <view class="field-name ">总行李额</view>
+      <view class="field-value flex-row"><input name="input" placeholder="0" /><text>kg</text></view>
+    </view>
+    <view class="section flex-row">
+      <view class="field-name">剩余行李额</view>
+      <view class="field-value flex-row"><input name="input" placeholder="0" /><text>kg</text></view>
+    </view>
+    <view class="section flex-row">
+      <view class="field-name">行李额单价</view>
+      <view class="field-value flex-row"><input name="input" placeholder="0" /><text>元/kg</text></view>
+    </view>
+    <view class="section">
+      <view class="field-value flex-row">
+        <textarea bindblur="bindTextAreaBlur" auto-height placeholder='留言'  />
+      </view>
+    </view>
+    
+    <view class="section btn-area">
+      <button form-type="submit" type="primary">发布</button>
+    </view>
+  </form>
+</view>
