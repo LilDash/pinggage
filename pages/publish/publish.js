@@ -90,6 +90,20 @@ Page({
   /**
    * Custom functions
    */
+  onDepartureLocationSeleted: function (e) {
+    this.setData({
+      'departureCountryId': e.detail.countryId,
+      'departureCityId': e.detail.cityId,
+    })
+  },
+
+  onArrivalLocationSeleted: function (e) {
+    this.setData({
+      'arrivalCountryId': e.detail.countryId,
+      'arrivalCityId': e.detail.cityId,
+    })
+  },
+
   onDepartureDateChange(e) {
     this.setData({
       departureDate: e.detail.value
@@ -102,8 +116,92 @@ Page({
     })
   },
 
+  onFormSubmit(e) {
+    if(!this.validateInput(e.detail.value)){
+      return ;
+    }
+  },
+
   /**
    * Helper functions
    */
+
+  validateInput(input) {
+    console.log(input);
+    if (this.data.departureCountryId == 0 || this.data.departureCityId == 0 
+    || this.data.arrivalCountryId == 0 || this.data.arrivalCityId == 0) {
+      wx.showToast({
+        title: '请选择出发地和目的地城市',
+        icon: 'none',
+        duration: 2000
+      });
+      return false;
+    }
+
+    if (this.data.departureCityId == this.data.arrivalCityId) {
+      wx.showToast({
+        title: '出发地和目的地不允许相同',
+        icon: 'none',
+        duration: 2000
+      });
+      return false;
+    }
+
+    if (this.data.departureDate > this.data.arrivalDate) {
+      wx.showToast({
+        title: '请选择正确的出发日期和到达日期',
+        icon: 'none',
+        duration: 2000
+      });
+      return false;
+    }
+
+    if(! /[0-9a-zA-Z]+/.test(input.flightNo)) {
+      wx.showToast({
+        title: '航班号格式错误',
+        icon: 'none',
+        duration: 2000
+      });
+      return false;
+    }
+
+    if (! /[0-9]{1,2}/.test(input.totalCapacity)) {
+      wx.showToast({
+        title: '总行李额必须是两位或以下整数',
+        icon: 'none',
+        duration: 2000
+      });
+      return false;
+    }
+
+    if (! /[0-9]{1,2}/.test(input.remainingCapacity)) {
+      wx.showToast({
+        title: '剩余行李额必须是两位或以下整数',
+        icon: 'none',
+        duration: 2000
+      });
+      return false;
+    }
+
+    if (! /[0-9]+/.test(input.capacityPrice)) {
+      wx.showToast({
+        title: '行李额单价必须是整数',
+        icon: 'none',
+        duration: 2000
+      });
+      return false;
+    }
+
+    if (input.memo.length > 200) {
+      wx.showToast({
+        title: '留言字数超过限制',
+        icon: 'none',
+        duration: 2000
+      });
+      return false;
+    }
+    
+    return true;
+  },
 
 })
