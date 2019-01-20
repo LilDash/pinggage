@@ -1,4 +1,8 @@
 /**index.wxss**/
+scroll-view {
+  position: absolute;
+  height: 100%;
+}
 
 .trip-list {
   width:100%;

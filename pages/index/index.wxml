@@ -10,17 +10,19 @@
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
   </view> -->
-  <view class="search-form-wrap">
-    <search-form bind:onSearchFormSubmit="onSearchFormSubmit"/>
-  </view>
-  <view class="trip-list" wx:if="{{trips.length>0}}">
-    <view class="trip-card-wrap" wx:for="{{trips}}" wx:for-item="trip">
-      <trip-card trip="{{trip}}"  /> 
+  <scroll-view scroll-y="{{true}}" enable-back-to-top="{{true}}" bindscrolltolower="onScrollToBottom">
+    <view class="search-form-wrap">
+      <search-form page="{{page}}" bind:onSearchFormSubmit="onSearchFormSubmit"/>
     </view>
-  </view>
-  <view class="trip-list" wx:else>
-    <view class="trip-list-empty">
-      ╮(╯▽╰)╭暂时找不到了
+    <view class="trip-list" wx:if="{{trips.length>0}}">
+      <view class="trip-card-wrap" wx:for="{{trips}}" wx:for-item="trip">
+        <trip-card trip="{{trip}}"  /> 
+      </view>
     </view>
-  </view>
+    <view class="trip-list" wx:else>
+      <view class="trip-list-empty">
+        ╮(╯▽╰)╭暂时找不到了
+      </view>
+    </view>
+  </scroll-view>
 </view>

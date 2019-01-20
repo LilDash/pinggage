@@ -7,7 +7,7 @@ Component({
    * Component properties
    */
   properties: {
-
+    page: Number,
   },
 
   /**
@@ -51,12 +51,16 @@ Component({
 
     onFormSubmit: function(e) {
       this.setData({'isLoading': true});
-      tripService.searchTrips(
-        this.data.departureCountryId, 
-        this.data.departureCityId, 
-        this.data.arrivalCountryId, 
-        this.data.arrivalCityId, 0, (res) => {
+      const searchCriteria = {
+        depCountryId: this.data.departureCountryId, 
+        depCityId: this.data.departureCityId,
+        arrCountryId: this.data.arrivalCountryId, 
+        arrCityId: this.data.arrivalCityId,
+        page: 0,
+      }
+      tripService.searchTrips(searchCriteria, (res) => {
         this.triggerEvent('onSearchFormSubmit', {
+          searchCriteria: searchCriteria,
           trips: res,
         });
         this.setData({

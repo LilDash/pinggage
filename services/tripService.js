@@ -3,7 +3,12 @@ const util = require('../utils/util.js')
 
 const apiBaseUrl = "http://localhost:8080";
 
-const searchTrips = (depCountryId, depCityId, arrCountryId, arrCityId, page, callback) => {
+const searchTrips = (searchCriteria, callback) => {
+  const depCountryId = searchCriteria.depCountryId || 0;
+  const depCityId = searchCriteria.depCityId || 0;
+  const arrCountryId = searchCriteria.arrCountryId || 0;
+  const arrCityId = searchCriteria.arrCityId || 0;
+  const page = searchCriteria.page || 0;
   const qs = 'depCountryId='+depCountryId
             + "&depCityId="+depCityId
             + "&arrCountryId="+arrCountryId

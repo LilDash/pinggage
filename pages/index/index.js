@@ -12,6 +12,13 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     trips: [],
+    searchCriteria: {
+      depCountryId: 0,
+      depCityId: 0,
+      arrCountryId: 0,
+      arrCityId: 0,
+      page: 0,
+    },
   },
   //事件处理函数
   bindViewTap: function() {
@@ -48,10 +55,8 @@ Page({
     }
 
     //Load trip list
-    tripService.searchTrips(0, 0, 0, 0, 0, (res) => {
-      this.setData({
-        'trips': res,
-      })
+    tripService.searchTrips(this.data.searchCriteria, (res) => {
+      this.loadTrips(res);
     });
   },
   getUserInfo: function(e) {
@@ -63,9 +68,39 @@ Page({
     })
   },
 
+  loadTrips: function(trips) {
+    this.setData({
+      'trips': trips,
+    })
+  },
+
+  appendTrips: function(trips) {
+    const newTrips = this.data.trips.concat(trips);
+    this.setData({
+      trips: newTrips,
+    });
+  },
+
   onSearchFormSubmit: function(e) {
     this.setData({
-      'trips': e.detail.trips,
+      searchCriteria: e.detail.searchCriteria,
     })
-  }
+    this.loadTrips(e.detail.trips);
+  },
+
+  onScrollToBottom: function(e) {
+    const newSearchCriteria = this.data.searchCriteria;
+    newSearchCriteria.page++;
+    tripService.searchTrips(newSearchCriteria, (res) => {
+      if (res.length > 0){
+        this.setData({
+          searchCriteria: newSearchCriteria,
+        });
+        this.appendTrips(res);
+      } 
+      // TODO:  Show message if no more data can be loaded.
+      
+    });
+  },
+   
 })
