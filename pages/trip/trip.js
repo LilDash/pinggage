@@ -24,14 +24,16 @@ Page({
    * Lifecycle function--Called when page is initially rendered
    */
   onReady: function () {
-
+    
   },
 
   /**
    * Lifecycle function--Called when page show
    */
   onShow: function () {
+    wx.showTabBar({
 
+    });
   },
 
   /**
@@ -81,5 +83,12 @@ Page({
         })
       }
     });
+  },
+
+  onTapGoBack: function (e) {
+    wx.switchTab({
+      url: '/pages/index/index',
+    });
+    
   }
 })

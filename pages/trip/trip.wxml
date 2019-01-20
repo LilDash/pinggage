@@ -54,5 +54,10 @@
       <text>免责声明及注意事项：</text>
     </view>
   </view>
+  <view class="section">
+    <view class="btn-wrap info-wrap" >
+      <button bindtap="onTapGoBack" type="primary">返回</button>
+    </view>
+  </view>
 </view>
 

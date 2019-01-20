@@ -36,6 +36,18 @@ const getTrip = (tripId, callback) => {
   });
 }
 
+const publishTrip = (tripObj, callback) => {
+  ajax.post(apiBaseUrl + '/trip/publish', tripObj, (res) => {
+    if (res && res.errCode === 0 && res.data) {
+      callback(res.data);
+    } else if (res) {
+      console.error("Publish trip failed. errCode:" + res.errCode + " errMsg: " + res.errMsg);
+    } else {
+      console.error("Publish trip failed. Unknown response");
+    }
+  });
+}
+
 const formatValues = (tripData) => {
   tripData.tripInfo.departureTime = util.formatTimestampToDate(tripData.tripInfo.departureTime);
   tripData.tripInfo.pickupTime = util.formatTimestampToDate(tripData.tripInfo.pickupTime);
@@ -46,4 +58,5 @@ const formatValues = (tripData) => {
 module.exports = {
   searchTrips: searchTrips,
   getTrip: getTrip,
+  publishTrip: publishTrip,
 }

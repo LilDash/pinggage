@@ -13,6 +13,10 @@ const formatTimeToDate = date => {
   return [year, month, day].map(formatNumber).join('-');
 }
 
+const dateStringToTimestamp = str => {
+  return new Date(str+ " 0:0:0").getTime(); // in milliseconds
+}
+
 const formatNumber = n => {
   n = n.toString()
   return n[1] ? n : '0' + n
@@ -20,5 +24,6 @@ const formatNumber = n => {
 
 module.exports = {
   formatTimestampToDate: formatTimestampToDate,
-  formatTimeToDate: formatTimeToDate
+  formatTimeToDate: formatTimeToDate,
+  dateStringToTimestamp: dateStringToTimestamp
 }
