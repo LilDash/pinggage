@@ -59,7 +59,7 @@
     </view>
     
     <view class="section btn-area">
-      <button form-type="submit" type="primary">发布</button>
+      <button form-type="submit" open-type="getUserInfo" type="primary">发布</button>
     </view>
   </form>
 </view>

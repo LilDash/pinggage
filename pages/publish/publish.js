@@ -1,6 +1,7 @@
 // pages/publish/publish.js
 const tripService = require('../../services/tripService.js')
 const locationService = require('../../services/locationService.js')
+const userService = require('../../services/userService.js')
 const util = require('../../utils/util.js')
 
 Page({
@@ -9,6 +10,7 @@ Page({
    * Page initial data
    */
   data: {
+    userInfo: {},
     countryCities: [],
     departureCountryId: 0,
     departureCityId: 0,
@@ -16,7 +18,6 @@ Page({
     arrivalCityId: 0,
     departureDate: util.formatTimeToDate(new Date()),
     arrivalDate: util.formatTimeToDate(new Date()),
-
     todayDate: util.formatTimeToDate(new Date()),
     endDate: (function() {
       const d = new Date();
@@ -90,6 +91,18 @@ Page({
   /**
    * Custom functions
    */
+  // onGotUserInfo: function (e) {
+  //   userService.getUserInfo(() => {});
+  //   console.log(e);
+  //   if (e.detail.userInfo) {
+  //     this.setData({
+  //       userInfo: e.detail.userInfo,
+  //     });
+  //   } else {
+    
+  //   }
+  // },
+
   onDepartureLocationSeleted: function (e) {
     this.setData({
       'departureCountryId': e.detail.countryId,
@@ -119,9 +132,22 @@ Page({
   },
 
   onFormSubmit(e) {
+    const openId = userService.getOpenId();
+    console.log(openId);
+
+    if(!openId) {
+      wx.showToast({
+        title: '获取用户信息失败，请稍后重试',
+        icon: 'none',
+        duration: 2000
+      });
+      return;
+    }
+
     if(!this.validateInput(e.detail.value)){
       return ;
     }
+
     wx.showLoading({
       title: '发布中',
       mask: true,
