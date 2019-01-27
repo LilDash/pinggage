@@ -1,0 +1,45 @@
+/* pages/me/contact.wxss */
+.container {
+  background-color: #f6f8f9;
+}
+
+.flex-column {
+  display: flex; 
+  flex-direction: column;
+}
+
+.flex-row {
+  display: flex; 
+  flex-direction: row;
+}
+
+.contact-form {
+  width: 100%;
+}
+
+.contact-form .section  {
+  margin: 0 0 10px 0;
+  background-color:#fff;
+  padding:18px;
+  text-align: right;
+}
+
+.contact-form .field-name {
+  width: 30%;
+  font-size: 30rpx;
+  line-height:55rpx;
+}
+
+.contact-form .field-value {
+  width: 70%;
+  font-size: 30rpx;
+}
+
+.contact-form .field-value text {
+  line-height: 55rpx;
+  padding-left: 5px;
+}
+
+.title {
+  margin:30rpx 0;
+}

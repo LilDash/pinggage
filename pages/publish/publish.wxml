@@ -52,6 +52,10 @@
       <view class="field-name">行李额单价</view>
       <view class="field-value flex-row"><input name="capacityPrice" type="number" placeholder="0" /><text>元/kg</text></view>
     </view>
+    <view class="section flex-row">
+      <view class="field-name">微信号</view>
+      <view class="field-value flex-row"><input name="contactWeChatId" placeholder="" /></view>
+    </view>
     <view class="section">
       <view class="field-value flex-row">
         <textarea bindblur="bindTextAreaBlur" name="memo" auto-height placeholder='留言（200字以内）'  />

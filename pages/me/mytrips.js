@@ -1,40 +1,32 @@
-// pages/trip/trip.js
-const tripService = require('../../services/tripService.js')
-
+// pages/me/mytrips.js
 Page({
 
   /**
    * Page initial data
    */
   data: {
-    trip: null,
-    contactValue: "",
+
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-    
-    tripService.getTrip(options.id, (res) => {
-      this.setData({ 'trip': res, 'contactValue': res.tripInfo.contactValue });
-    });
+
   },
 
   /**
    * Lifecycle function--Called when page is initially rendered
    */
   onReady: function () {
-    
+
   },
 
   /**
    * Lifecycle function--Called when page show
    */
   onShow: function () {
-    wx.showTabBar({
 
-    });
   },
 
   /**
@@ -70,26 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-
-  onTapContact: function (e) {
-    var self = this;
-    wx.setClipboardData({
-      data: self.data.contactValue,
-      success: function (res) {
-        wx.showToast({
-          title: '复制成功',
-          icon: 'success',
-          duration: 1500
-        })
-      }
-    });
-  },
-
-  onTapGoBack: function (e) {
-    wx.switchTab({
-      url: '/pages/index/index',
-    });
-    
   }
 })

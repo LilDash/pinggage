@@ -1,0 +1,30 @@
+<!--pages/me/index.wxml-->
+<view class="container">
+  <view class="section">
+    <view class="user-info-wrap info-wrap flex-column" >
+      <view wx:if="{{userInfo.avatar}}">
+        <image src="{{userInfo.avatar}}" class="avatar" />
+      </view>
+      <view wx:else>
+        <image src="/images/icon-default-avatar.png" class="avatar" />
+      </view>
+      <view class="flex-column user-info-profile">
+        <view class="user-info-name">{{userInfo.nickname}}</view>
+        <view>
+          <view class="user-info-tripcount">完成{{userInfo.tripsNum}}次 - </view>
+          <view class="user-info-rating">评价:{{userInfo.rating}}</view>
+        </view>  
+      </view>
+    </view>
+  </view>
+  <view class="section">
+    <navigator url="/pages/me/mytrips" hover-class="navigator-hover">
+      <view class="mytrips-info-wrap info-wrap">
+        <view>我的旅程</view><view class='arrow'/>
+      </view>
+      </navigator>
+  </view>
+
+</view>
+
+

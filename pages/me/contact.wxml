@@ -1,0 +1,18 @@
+<!--pages/me/contact.wxml-->
+<view class="container">
+  <text class="title">设置联系方式</text>
+  <form class="contact-form" bindsubmit="onFormSubmit" bindreset="onFormReset">
+  
+    <view class="section flex-row">
+      <view class="field-name">微信号</view>
+      <view class="field-value flex-row"><input name="wechatid" maxlength="32" placeholder="" value="{{wechatid}}" /></view>
+    </view>
+    <view class="section flex-row">
+      <view class="field-name ">手机号</view>
+      <view class="field-value flex-row"><input name="phonenumber" maxlength="20" placeholder="" value="{{phonenumber}}" /></view>
+    </view>
+    <view class="section btn-area">
+      <button form-type="submit" type="primary">保存</button>
+    </view>
+  </form>
+</view>

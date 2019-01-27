@@ -4,6 +4,8 @@ const locationService = require('../../services/locationService.js')
 const userService = require('../../services/userService.js')
 const util = require('../../utils/util.js')
 
+const weChatIdContactTypeId = 3;
+
 Page({
 
   /**
@@ -87,22 +89,6 @@ Page({
 
   },
 
-
-  /**
-   * Custom functions
-   */
-  // onGotUserInfo: function (e) {
-  //   userService.getUserInfo(() => {});
-  //   console.log(e);
-  //   if (e.detail.userInfo) {
-  //     this.setData({
-  //       userInfo: e.detail.userInfo,
-  //     });
-  //   } else {
-    
-  //   }
-  // },
-
   onDepartureLocationSeleted: function (e) {
     this.setData({
       'departureCountryId': e.detail.countryId,
@@ -132,10 +118,9 @@ Page({
   },
 
   onFormSubmit(e) {
-    const openId = userService.getOpenId();
-    console.log(openId);
+    const userInfo = userService.getUserInfo();
 
-    if(!openId) {
+    if(!userInfo.userId) {
       wx.showToast({
         title: '获取用户信息失败，请稍后重试',
         icon: 'none',
@@ -153,6 +138,7 @@ Page({
       mask: true,
     });
     const tripObj = {
+      userId: userInfo.userId,
       depCityId: this.data.departureCityId,
       arrCityId: this.data.arrivalCityId,
       depTime: util.dateStringToTimestamp(this.data.departureDate),
@@ -161,6 +147,8 @@ Page({
       totalCapacity: parseInt(e.detail.value.totalCapacity),
       remainingCapacity: parseInt(e.detail.value.remainingCapacity),
       capacityPrice: parseInt(e.detail.value.capacityPrice),
+      contactTypeId: weChatIdContactTypeId,
+      contactValue: e.detail.value.contactWeChatId,
       memo: e.detail.value.memo,
     };
     tripService.publishTrip(tripObj, (res) => {
@@ -177,6 +165,16 @@ Page({
         });
       }, 2000);
       
+    }, (errCode) => {
+      wx.hideLoading();
+      // if (errCode === 3002){
+      //   wx.showToast({
+      //     title: '请设置至少一个联系方式',
+      //     icon: 'none',
+      //     duration: 5000,
+      //     mask: true,
+      //   });
+      // }
     });
   },
 
@@ -243,6 +241,15 @@ Page({
     if (! /^[0-9]+$/.test(input.capacityPrice)) {
       wx.showToast({
         title: '行李额单价必须是整数',
+        icon: 'none',
+        duration: 2000
+      });
+      return false;
+    }
+
+    if (! /^[-_0-9a-zA-Z]+$/.test(input.contactWeChatId)) {
+      wx.showToast({
+        title: '请输入正确的微信号',
         icon: 'none',
         duration: 2000
       });

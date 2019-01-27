@@ -41,10 +41,12 @@ const getTrip = (tripId, callback) => {
   });
 }
 
-const publishTrip = (tripObj, callback) => {
+const publishTrip = (tripObj, onSuccess, onFail) => {
   ajax.post(apiBaseUrl + '/trip/publish', tripObj, (res) => {
     if (res && res.errCode === 0 && res.data) {
-      callback(res.data);
+      onSuccess(res.data);
+    } else if (res && res.errCode != 0) {
+      onFail(res.errCode);
     } else if (res) {
       console.error("Publish trip failed. errCode:" + res.errCode + " errMsg: " + res.errMsg);
     } else {

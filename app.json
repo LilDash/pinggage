@@ -2,7 +2,9 @@
   "pages": [
     "pages/index/index",
     "pages/trip/trip",
-    "pages/publish/publish"
+    "pages/publish/publish",
+    "pages/me/index",
+    "pages/me/mytrips"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -27,6 +29,12 @@
         "pagePath": "pages/publish/publish",
         "iconPath": "images/icon-luggage.png",
         "selectedIconPath": "images/icon-luggage.png"
+      },
+      {
+        "text": "我",
+        "pagePath": "pages/me/index",
+        "iconPath": "images/icon-default-avatar.png",
+        "selectedIconPath": "images/icon-default-avatar.png"
       }
     ]
   }

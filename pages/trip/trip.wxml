@@ -30,7 +30,12 @@
   </view>
   <view class="section">
     <view class="user-info-wrap info-wrap flex-row" >
-      <image src="/images/icon-default-avatar.png" class="avatar" />
+      <view wx:if="{{trip.userInfo.avatar}}">
+        <image src="{{trip.userInfo.avatar}}" class="avatar" />
+      </view>
+      <view wx:else>
+        <image src="/images/icon-default-avatar.png" class="avatar" />
+      </view>
       <view class="flex-column user-info-profile">
         <view class="user-info-name">{{trip.userInfo.nickname}}</view>
         <view class="flex-row">
@@ -43,7 +48,7 @@
   </view>
   <view class="section">
     <view class="contact-info-wrap info-wrap" bindtap="onTapContact">
-      <text>微信号：Lil_Dash </text>
+      <text>微信号：{{trip.tripInfo.contactValue}} </text>
     </view>
   </view>
   <view class="section">
