@@ -1,6 +1,6 @@
 <navigator url="/pages/trip/trip?id={{trip.tripInfo.id}}" hover-class="navigator-hover">
 <view class="trip-card">
-  <view class="flex-row user-info">
+  <view wx:if="{{isShowUserInfo}}" class="flex-row user-info">
     <view wx:if="{{trip.userInfo.avatar}}">
       <image src="{{trip.userInfo.avatar}}" class="avatar" />
     </view>

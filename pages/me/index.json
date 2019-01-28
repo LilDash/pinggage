@@ -1,3 +1,5 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "trip-card": "/components/trip-card/trip-card"
+  }
 }

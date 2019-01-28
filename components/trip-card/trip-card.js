@@ -8,6 +8,10 @@ Component({
       type: Object,
       value: {},
     }, 
+    isShowUserInfo: {
+      type: Boolean,
+      value: false,
+    }
   },
 
   /**

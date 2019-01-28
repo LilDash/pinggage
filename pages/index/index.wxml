@@ -16,7 +16,7 @@
     </view>
     <view class="trip-list" wx:if="{{trips.length>0}}">
       <view class="trip-card-wrap" wx:for="{{trips}}" wx:for-item="trip">
-        <trip-card trip="{{trip}}"  /> 
+        <trip-card trip="{{trip}}" isShowUserInfo="{{true}}"  /> 
       </view>
     </view>
     <view class="trip-list" wx:else>

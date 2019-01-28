@@ -1,5 +1,6 @@
 // pages/me/index.js
 const userService = require('../../services/userService.js')
+const tripService = require('../../services/tripService.js')
 
 Page({
 
@@ -8,14 +9,26 @@ Page({
    */
   data: {
     userInfo: {},
+    trips: [],
+    page: 0,
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
+    const self = this;
     const userInfo = userService.getUserInfo();
     this.setData({'userInfo': userInfo});
+
+    tripService.getMyTrips(this.data.page, (res) => {
+      const trips = [];
+      for(var i in res) {
+        const trip = { 'tripInfo': res[i] };
+        trips.push(trip);
+      }
+      self.setData({ 'trips': trips});
+    });
   },
 
   /**
@@ -65,5 +78,27 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+
+  onScrollToBottom: function (e) {
+    const newPage = this.data.page + 1;
+    tripService.getMyTrips(newPage, (res) => {
+      if (res.length > 0) {
+        this.setData({
+          page: newPage,
+        });
+        this.appendTrips(res);
+      }
+      // TODO:  Show message if no more data can be loaded.
+
+    });
+  },
+
+
+  appendTrips: function (trips) {
+    const newTrips = this.data.trips.concat(trips);
+    this.setData({
+      trips: newTrips,
+    });
+  },
 })
