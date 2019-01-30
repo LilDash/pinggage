@@ -21,14 +21,8 @@ Page({
     const userInfo = userService.getUserInfo();
     this.setData({'userInfo': userInfo});
 
-    tripService.getMyTrips(this.data.page, (res) => {
-      const trips = [];
-      for(var i in res) {
-        const trip = { 'tripInfo': res[i] };
-        trips.push(trip);
-      }
-      self.setData({ 'trips': trips});
-    });
+    
+    
   },
 
   /**
@@ -42,7 +36,7 @@ Page({
    * Lifecycle function--Called when page show
    */
   onShow: function () {
-
+    this.loadMyTrips();
   },
 
   /**
@@ -101,4 +95,16 @@ Page({
       trips: newTrips,
     });
   },
+
+  loadMyTrips: function () {
+    const self = this;
+    tripService.getMyTrips(this.data.page, (res) => {
+      const trips = [];
+      for (var i in res) {
+        const trip = { 'tripInfo': res[i] };
+        trips.push(trip);
+      }
+      self.setData({ 'trips': trips });
+    });
+  }
 })

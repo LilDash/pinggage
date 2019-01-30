@@ -1,5 +1,6 @@
 // pages/trip/trip.js
 const tripService = require('../../services/tripService.js')
+const userService = require('../../services/userService.js')
 
 Page({
 
@@ -9,16 +10,18 @@ Page({
   data: {
     trip: null,
     contactValue: "",
+    onBackToHome: false,
+    showDeleteButton: false,
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-    
-    tripService.getTrip(options.id, (res) => {
-      this.setData({ 'trip': res, 'contactValue': res.tripInfo.contactValue });
-    });
+    if (options.onBackToHome && options.onBackToHome == 'true') {
+      this.setData({'onBackToHome': true});
+    }
+    this.loadTrip(options.id);
   },
 
   /**
@@ -32,9 +35,6 @@ Page({
    * Lifecycle function--Called when page show
    */
   onShow: function () {
-    wx.showTabBar({
-
-    });
   },
 
   /**
@@ -87,9 +87,43 @@ Page({
   },
 
   onTapGoBack: function (e) {
-    wx.switchTab({
-      url: '/pages/index/index',
+    if (this.data.onBackToHome) {
+      wx.switchTab({
+        url: '/pages/index/index',
+      });
+    } else {
+      wx.navigateBack({
+        delta: 1
+      })
+    }
+  },
+
+  onTapDelete: function(e) {
+    const self = this;
+    wx.showModal({
+      title: '删除',
+      content: '确认删除这条空箱记录吗？',
+      success(res) {
+        if (res.confirm) {
+          tripService.deleteTrip(self.data.trip.tripInfo.id, () => {
+            wx.navigateBack({
+              delta: 1
+            })
+          });
+        }
+      }
+    })
+  },
+
+
+  loadTrip: function(tripId) {
+    tripService.getTrip(tripId, (res) => {
+      const userInfo = userService.getUserInfo();
+      const showDeleteButton = userInfo && userInfo.userId && userInfo.userId == res.tripInfo.userId;
+
+      this.setData({ 'trip': res, 'contactValue': res.tripInfo.contactValue, 'showDeleteButton': showDeleteButton });
     });
-    
   }
+
+
 })

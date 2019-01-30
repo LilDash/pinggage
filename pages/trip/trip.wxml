@@ -61,6 +61,7 @@
   </view>
   <view class="section">
     <view class="btn-wrap info-wrap" >
+      <button wx:if="{{showDeleteButton}}"  bindtap="onTapDelete" type="warn">删除</button>
       <button bindtap="onTapGoBack" type="primary">返回</button>
     </view>
   </view>

@@ -115,3 +115,7 @@
 .user-info-publishtime {
   font-size: 22rpx;
 }
+
+.btn-wrap button {
+  margin: 6px 0;
+}

@@ -161,7 +161,7 @@ Page({
       });
       setTimeout(function () {
         wx.redirectTo({
-          url: '/pages/trip/trip?id=' + res.tripId,
+          url: '/pages/trip/trip?onBackToHome=true&id=' + res.tripId,
         });
       }, 2000);
       

@@ -78,6 +78,21 @@ const publishTrip = (tripObj, onSuccess, onFail) => {
   });
 }
 
+const deleteTrip = (tripId, onSuccess, onFail) => {
+  const userInfo = userService.getUserInfo();
+  if (userInfo && userInfo.userId) {
+    ajax.delete(apiBaseUrl + '/trip?userId='+userInfo.userId+'&tripId='+tripId, (res) => {
+      if (res && res.errCode === 0) {
+        onSuccess();
+      } else {
+        onFail();
+      }
+    });
+  } else {
+    console.error("Fail to get user info");
+  }
+}
+
 const formatValues = (tripInfo) => {
   tripInfo.departureTime = util.formatTimestampToDate(tripInfo.departureTime);
   tripInfo.pickupTime = util.formatTimestampToDate(tripInfo.pickupTime);
@@ -90,4 +105,5 @@ module.exports = {
   getTrip: getTrip,
   publishTrip: publishTrip,
   getMyTrips: getMyTrips,
+  deleteTrip: deleteTrip,
 }

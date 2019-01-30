@@ -32,7 +32,7 @@
         </text>
       </view>
       <view class="luggage-info-capacity">
-        <progress class="luggage-info-capacity-bar" percent="{{trip.tripInfo.remainingCapacity/trip.tripInfo.totalCapacity*100}}" stroke-width="6" border-radius="8" activeColor="rgba(230, 67, 64, 0.8)"  active />
+        <progress class="luggage-info-capacity-bar" percent="{{(trip.tripInfo.totalCapacity-trip.tripInfo.remainingCapacity)/trip.tripInfo.totalCapacity*100}}" stroke-width="6" border-radius="8" activeColor="rgba(230, 67, 64, 0.8)"  active />
         <text>
           剩余容量: <text class="luggage-info-capacity-remain">{{trip.tripInfo.remainingCapacity}}</text>kg/{{trip.tripInfo.totalCapacity}}kg
         </text>
