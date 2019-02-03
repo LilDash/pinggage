@@ -1,0 +1,51 @@
+/* pages/signin/signin.wxss */
+.container {
+  padding: 100rpx 0;
+}
+
+.flex-column {
+  display: flex; 
+  flex-direction: column;
+}
+
+.flex-row {
+  display: flex; 
+  flex-direction: row;
+}
+
+.section {
+  margin: 40px 0;
+  background-color:#efefef;
+  border-radius:12px;
+  padding:14px 20px;
+
+}
+
+.signin-text-wrap {
+  padding: 30rpx 60rpx;
+
+}
+
+.signin-logo {
+  width: 128px;
+  height: 128px;
+}
+
+.signin-text-icon {
+  width: 20%;
+  text-align: center;
+}
+.signin-text-icon image {
+  width: 32px;
+  height: 32px;
+}
+
+.signin-text {
+  font-size: 14px;
+  width: 80%;
+  font-style:italic;
+}
+
+.signin-btn {
+  padding: 0 100rpx;
+}

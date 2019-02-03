@@ -1,4 +1,4 @@
-const ajax = require('../utils/ajax.js')
+const authAjax = require('../utils/authAjax.js')
 const util = require('../utils/util.js')
 const userService = require('./userService.js')
 
@@ -15,7 +15,7 @@ const searchTrips = (searchCriteria, callback) => {
             + "&arrCountryId="+arrCountryId
             + "&arrCityId="+arrCityId
             + "&page="+page;
-  ajax.get(apiBaseUrl + '/trip/search?'+qs, {}, (res) => {
+  authAjax.get(apiBaseUrl + '/trip/search?'+qs, {}, (res) => {
     if (res && res.errCode === 0 && res.data) {
       for (var i in res.data) {
         res.data[i].tripInfo = formatValues(res.data[i].tripInfo);
@@ -30,7 +30,7 @@ const searchTrips = (searchCriteria, callback) => {
 }
 
 const getTrip = (tripId, callback) => {
-  ajax.get(apiBaseUrl + '/trip/detail?id=' + tripId, {}, (res) => {
+  authAjax.get(apiBaseUrl + '/trip/detail?id=' + tripId, {}, (res) => {
     if (res && res.errCode === 0 && res.data) {
       const data = res.data;
       data.tripInfo = formatValues(res.data.tripInfo);
@@ -46,7 +46,7 @@ const getTrip = (tripId, callback) => {
 const getMyTrips = (page, callback) => {
   const userInfo = userService.getUserInfo();
   if (userInfo && userInfo.userId) {
-    ajax.get(apiBaseUrl + '/trip/mytrips?userId=' + userInfo.userId, {}, (res) => {
+    authAjax.get(apiBaseUrl + '/trip/mytrips?userId=' + userInfo.userId, {}, (res) => {
       if (res && res.errCode === 0 && res.data) {
         for (var i in res.data) {
           res.data[i] = formatValues(res.data[i]);
@@ -65,7 +65,7 @@ const getMyTrips = (page, callback) => {
 }
 
 const publishTrip = (tripObj, onSuccess, onFail) => {
-  ajax.post(apiBaseUrl + '/trip/publish', tripObj, (res) => {
+  authAjax.post(apiBaseUrl + '/trip/publish', tripObj, (res) => {
     if (res && res.errCode === 0 && res.data) {
       onSuccess(res.data);
     } else if (res && res.errCode != 0) {
@@ -81,7 +81,7 @@ const publishTrip = (tripObj, onSuccess, onFail) => {
 const deleteTrip = (tripId, onSuccess, onFail) => {
   const userInfo = userService.getUserInfo();
   if (userInfo && userInfo.userId) {
-    ajax.delete(apiBaseUrl + '/trip?userId='+userInfo.userId+'&tripId='+tripId, (res) => {
+    authAjax.delete(apiBaseUrl + '/trip?userId='+userInfo.userId+'&tripId='+tripId, (res) => {
       if (res && res.errCode === 0) {
         onSuccess();
       } else {

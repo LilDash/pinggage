@@ -1,10 +1,12 @@
-const get = (url, data, onSuccess, onFail) => {
+
+const get = (url, data, onSuccess, onFail, authHeader='') => {
   wx.request({
     url: url,
     method: 'GET',
     data: data,
     header: {
-      'content-type': 'application/json'
+      'content-type': 'application/json',
+      'Authorization': authHeader,
     },
     success(res) {
       if (res.statusCode === 200) {
@@ -17,13 +19,14 @@ const get = (url, data, onSuccess, onFail) => {
   })
 }
 
-const post = (url, data, onSuccess, onFail) => {
+const post = (url, data, onSuccess, onFail, authHeader='') => {
   wx.request({
     url: url,
     method: 'POST',
     data: data,
     header: {
-      'content-type': 'application/json'
+      'content-type': 'application/json',
+      'Authorization': authHeader,
     },
     success(res) {
       if (res.statusCode === 200) {
@@ -36,13 +39,13 @@ const post = (url, data, onSuccess, onFail) => {
   })
 }
 
-
-const deleteit = (url, onSuccess, onFail) => {
+const deleteit = (url, onSuccess, onFail, authHeader='') => {
   wx.request({
     url: url,
     method: 'DELETE',
     header: {
-      'content-type': 'application/json'
+      'content-type': 'application/json',
+      'Authorization': authHeader,
     },
     success(res) {
       if (res.statusCode === 200) {

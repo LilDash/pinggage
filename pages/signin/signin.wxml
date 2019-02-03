@@ -1,0 +1,29 @@
+<!--pages/signin/signin.wxml-->
+<view class="container">
+
+  <image bindtap="" class="signin-logo" src="/images/icon-luggage.png" mode="cover"></image>
+  <view class="signin-text-wrap">
+    <view class="section flex-row">
+      <view class="signin-text-icon">
+        <image src="/images/icon-people.png"></image>
+      </view>
+      <view class="signin-text">
+        <text >我是旅行者，拼格帮我充分利用剩余行李额，想不到旅行也能赚到钱！</text>
+      </view>
+    </view>
+    
+    <view class="section flex-row">   
+      <view class="signin-text">   
+        <text>我是海外华人，我在拼格找到愿意帮忙带货的人，想吃家乡特产, 再也不是难题了！</text>
+      </view>
+      <view class="signin-text-icon"><image src="/images/icon-people.png"></image></view>
+    </view>
+
+  </view>
+  <view>
+    <button class="signin-btn" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo" type="primary">
+      授权登录
+    </button>
+  </view>
+  
+</view>

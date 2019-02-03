@@ -4,12 +4,13 @@
     "pages/trip/trip",
     "pages/publish/publish",
     "pages/me/index",
-    "pages/me/mytrips"
+    "pages/me/mytrips",
+    "pages/signin/signin"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Pinggage",
+    "navigationBarTitleText": "Pinggage拼格",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
