@@ -18,6 +18,10 @@ Page({
    */
   onLoad: function (options) {
     const self = this;
+    wx.showLoading({
+      title: '加载中',
+      mask: true,
+    });
     const userInfo = userService.getUserInfo();
     this.setData({'userInfo': userInfo});
 
@@ -105,6 +109,7 @@ Page({
         trips.push(trip);
       }
       self.setData({ 'trips': trips });
+      wx.hideLoading();
     });
   }
 })

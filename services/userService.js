@@ -1,7 +1,7 @@
 const ajax = require('../utils/ajax.js')
 const util = require('../utils/util.js')
 
-const apiBaseUrl = "http://localhost:8080";
+const baseApiUrl = wx.getStorageSync('baseApiUrl')
 
 // const getContacts = (callback) => {
 //   const userInfo = getUserInfo();

@@ -21,6 +21,10 @@ Page({
     if (options.onBackToHome && options.onBackToHome == 'true') {
       this.setData({'onBackToHome': true});
     }
+    wx.showLoading({
+      title: '加载中',
+      mask: true,
+    });
     this.loadTrip(options.id);
   },
 
@@ -122,6 +126,7 @@ Page({
       const showDeleteButton = userInfo && userInfo.userId && userInfo.userId == res.tripInfo.userId;
 
       this.setData({ 'trip': res, 'contactValue': res.tripInfo.contactValue, 'showDeleteButton': showDeleteButton });
+      wx.hideLoading();
     });
   }
 

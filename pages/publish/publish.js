@@ -104,14 +104,12 @@ Page({
   },
 
   onDepartureDateChange(e) {
-    console.log(e.detail.value);
     this.setData({
       departureDate: e.detail.value
     })
   },
 
   onArrivalDateChange(e) {
-    console.log(e.detail.value);
     this.setData({
       arrivalDate: e.detail.value
     })

@@ -1,7 +1,9 @@
 const ajax = require('../utils/ajax.js')
 
+const baseApiUrl = wx.getStorageSync('baseApiUrl')
+
 const getCountryCities = (callback, hasUnlimit=true) => {
-  ajax.get('http://localhost:8080/geo/countrycity', {}, (res) => {
+  ajax.get(baseApiUrl + '/geo/countrycity', {}, (res) => {
     if (res && res.errCode === 0 && res.data) {
       if (hasUnlimit) {
         const allCountryOption = {

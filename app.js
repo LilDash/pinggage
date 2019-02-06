@@ -2,6 +2,8 @@
 
 const authService = require('services/authService.js');
 
+const baseApiUrl = "https://pinggage.0pla.net";
+
 App({
   onLaunch: function () {
     // 展示本地存储能力
@@ -9,6 +11,7 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
 
+    wx.setStorageSync('baseApiUrl', baseApiUrl)
     // 登录
     // wx.login({
     //   success: res => {

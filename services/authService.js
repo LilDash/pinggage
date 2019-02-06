@@ -2,7 +2,7 @@ const ajax = require('../utils/ajax.js')
 const userService = require('../services/userService.js')
 const jwtService = require('../services/jwtService.js')
 
-const apiBaseUrl = "http://localhost:8080";
+const baseApiUrl = wx.getStorageSync('baseApiUrl')
 
 const login = (forceLogin, callback) => {
   var userInfo = userService.getUserInfo() || {};
@@ -21,7 +21,7 @@ const login = (forceLogin, callback) => {
               iv: res.iv,
               code: code,
             };
-            ajax.post(apiBaseUrl + '/auth/login/wechatmini', data, (res) => {
+            ajax.post(baseApiUrl + '/auth/login/wechatmini', data, (res) => {
               if (res.errCode === 0 && res.data && res.data.status === 0) {
                 const loginResult = res.data.resultInfo;
                 const jwt = res.data.jwtInfo;

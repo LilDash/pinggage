@@ -52,11 +52,12 @@
     </view>
   </view>
   <view class="section">
-    <view class="memo-info-wrap info-wrap">留言:{{trip.memo}}</view>  
+    <view class="memo-info-wrap info-wrap">留言:{{trip.tripInfo.memo}}</view>  
   </view>
   <view class="section">
     <view class="notes-info-wrap info-wrap" >
       <text>免责声明及注意事项：</text>
+      <text>Pinggage拼格提供的所有信息只供用户参考，我们对用户在本应用程序以外的所有线上线下活动均不负责。请谨慎鉴别用户信息真伪，并遵守当地法律法规。</text>
     </view>
   </view>
   <view class="section">
