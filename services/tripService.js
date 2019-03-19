@@ -93,9 +93,16 @@ const deleteTrip = (tripId, onSuccess, onFail) => {
 }
 
 const formatValues = (tripInfo) => {
+  // blur contact
+  if (Date.now() > tripInfo.departureTime) {
+    tripInfo.contactValue = "******";
+  }
+  // datetime format
   tripInfo.departureTime = util.formatTimestampToDate(tripInfo.departureTime);
   tripInfo.pickupTime = util.formatTimestampToDate(tripInfo.pickupTime);
   tripInfo.recCreatedWhen = util.formatTimestampToDate(tripInfo.recCreatedWhen);
+
+
   return tripInfo;
 }
 

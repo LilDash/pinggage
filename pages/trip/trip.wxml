@@ -47,8 +47,15 @@
     </view>
   </view>
   <view class="section">
-    <view class="contact-info-wrap info-wrap" bindtap="onTapContact">
-      <text>微信号：{{trip.tripInfo.contactValue}} </text>
+    <view wx:if="{{trip.tripInfo.contactValue === '******'}}">
+      <view class="contact-info-wrap info-wrap">
+        <text>微信号：{{"(历史记录的联系方式已被隐藏)"}} </text>
+      </view>
+    </view>
+    <view wx:else>
+      <view class="contact-info-wrap info-wrap" bindtap="onTapContact">
+        <text>微信号：{{trip.tripInfo.contactValue}} </text>
+      </view>
     </view>
   </view>
   <view class="section">
