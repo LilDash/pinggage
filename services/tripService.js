@@ -94,7 +94,7 @@ const deleteTrip = (tripId, onSuccess, onFail) => {
 
 const formatValues = (tripInfo) => {
   // blur contact
-  if (Date.now() > tripInfo.departureTime) {
+  if (Date.now() > tripInfo.departureTime + 86400000) {
     tripInfo.contactValue = "******";
   }
   // datetime format
