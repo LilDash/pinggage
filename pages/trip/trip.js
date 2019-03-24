@@ -73,7 +73,10 @@ Page({
    * Called when user click on the top right corner to share
    */
   onShareAppMessage: function () {
-
+    return {
+      title: '我有一个行李空箱，可以顺路帮你带货',
+      desc: 'Pinggage拼格',
+    }
   },
 
   onTapContact: function (e) {

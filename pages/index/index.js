@@ -107,5 +107,15 @@ Page({
       
     });
   },
+
+  /**
+   * Called when user click on the top right corner to share
+   */
+  onShareAppMessage: function () {
+    return {
+      title: '找找有谁可以帮忙带货',
+      desc: 'Pinggage拼格',
+    }
+  },
    
 })
