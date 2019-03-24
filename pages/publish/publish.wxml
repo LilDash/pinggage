@@ -50,7 +50,7 @@
     </view>
     <view class="section flex-row">
       <view class="field-name">行李额单价</view>
-      <view class="field-value flex-row"><input name="capacityPrice" type="number" placeholder="0" /><text>元/kg</text></view>
+      <view class="field-value flex-row"><input name="capacityPrice" type="number" placeholder="0" maxlength="5" /><text>元/kg</text></view>
     </view>
     <view class="section flex-row">
       <view class="field-name">微信号</view>

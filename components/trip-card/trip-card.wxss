@@ -84,12 +84,14 @@
 
 .luggage-info {
   width: 30%;
+  position:relative;
+  top:-90rpx;
 }
 
 .luggage-info-price {
   font-size: 20rpx;
   color: #888888;
-  line-height: 18rpx;
+  /* line-height: 18rpx; */
   padding: 0 0 20rpx 0;
 }
 

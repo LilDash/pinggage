@@ -10,8 +10,8 @@
     <view class="flex-column user-info-profile">
       <view class="user-info-name">{{trip.userInfo.nickname}}</view>
       <view class="flex-row">
-        <view class="user-info-tripcount">完成{{trip.userInfo.tripsNum}}次 - </view>
-        <view class="user-info-rating">评价:{{trip.userInfo.rating}}</view>
+        <view class="user-info-tripcount">完成{{trip.userInfo.tripsNum}}次 </view>
+        <!-- <view class="user-info-rating">评价:{{trip.userInfo.rating}}</view> -->
       </view>
       <view class="user-info-publishtime">发布时间:{{trip.tripInfo.recCreatedWhen}}</view>   
     </view>
