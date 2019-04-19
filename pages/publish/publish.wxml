@@ -36,10 +36,10 @@
         </picker>
       </view>
     </view>
-    <view class="section flex-row">
+    <!-- <view class="section flex-row">
       <view class="field-name">航班号</view>
       <view class="field-value flex-row"><input name="flightNo" maxlength="10" placeholder="" /></view>
-    </view>
+    </view> -->
     <view class="section flex-row">
       <view class="field-name ">总行李额</view>
       <view class="field-value flex-row"><input name="totalCapacity" type="number" maxlength="2" placeholder="0" /><text>kg</text></view>

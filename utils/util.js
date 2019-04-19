@@ -14,7 +14,8 @@ const formatTimeToDate = date => {
 }
 
 const dateStringToTimestamp = str => {
-  return new Date(str+ " 0:0:0").getTime(); // in milliseconds
+  const dateStr = str.replace(/\-/g, "/"); // ios compatibility
+  return new Date(dateStr+ " 0:0:0").getTime(); // in milliseconds
 }
 
 const formatNumber = n => {

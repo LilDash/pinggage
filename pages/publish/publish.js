@@ -141,7 +141,7 @@ Page({
       arrCityId: this.data.arrivalCityId,
       depTime: util.dateStringToTimestamp(this.data.departureDate),
       arrTime: util.dateStringToTimestamp(this.data.arrivalDate),
-      flightNo: e.detail.value.flightNo,
+      flightNo: '', //e.detail.value.flightNo,
       totalCapacity: parseInt(e.detail.value.totalCapacity),
       remainingCapacity: parseInt(e.detail.value.remainingCapacity),
       capacityPrice: parseInt(e.detail.value.capacityPrice),
@@ -209,14 +209,14 @@ Page({
       return false;
     }
 
-    if(! /^[0-9a-zA-Z]+$/.test(input.flightNo)) {
-      wx.showToast({
-        title: '航班号格式错误',
-        icon: 'none',
-        duration: 2000
-      });
-      return false;
-    }
+    // if(! /^[0-9a-zA-Z]+$/.test(input.flightNo)) {
+    //   wx.showToast({
+    //     title: '航班号格式错误',
+    //     icon: 'none',
+    //     duration: 2000
+    //   });
+    //   return false;
+    // }
 
     if (! /^[0-9]{1,2}$/.test(input.totalCapacity)) {
       wx.showToast({
