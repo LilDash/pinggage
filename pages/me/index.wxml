@@ -12,8 +12,8 @@
         <view class="flex-column user-info-profile">
           <view class="user-info-name">{{userInfo.nickname}}</view>
           <view>
-            <view class="user-info-tripcount">完成{{userInfo.tripsNum}}次 - </view>
-            <view class="user-info-rating">评价:{{userInfo.rating}}</view>
+            <view class="user-info-tripcount">完成{{userInfo.tripsNum}}次  </view>
+            <!-- <view class="user-info-rating">评价:{{userInfo.rating}}</view> -->
           </view>  
         </view>
       </view>

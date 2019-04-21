@@ -123,6 +123,14 @@ Page({
     })
   },
 
+  onTapShare: function(e) {
+    wx.showToast({
+      title: '点击右上角菜单转发分享',
+      icon: 'none',
+      duration: 2500
+    });
+  },
+
 
   loadTrip: function(tripId) {
     tripService.getTrip(tripId, (res) => {

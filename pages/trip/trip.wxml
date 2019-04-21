@@ -69,8 +69,9 @@
   </view>
   <view class="section">
     <view class="btn-wrap info-wrap" >
-      <button wx:if="{{showDeleteButton}}"  bindtap="onTapDelete" type="warn">删除</button>
+      <button bindtap="onTapShare" type="default">分享</button>
       <button bindtap="onTapGoBack" type="primary">返回</button>
+      <text class="btn-delete" wx:if="{{showDeleteButton}}" bindtap="onTapDelete">删除此空箱记录</text>
     </view>
   </view>
 </view>

@@ -47,7 +47,7 @@
 
 .trip-info{
   padding: 8px 0;
-  width: 70%;
+  width: 65%;
 }
 
 .trip-info-location-city {
@@ -83,7 +83,7 @@
 }
 
 .luggage-info {
-  width: 30%;
+  width: 35%;
 }
 
 .luggage-info-price {

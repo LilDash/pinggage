@@ -119,3 +119,10 @@
 .btn-wrap button {
   margin: 6px 0;
 }
+
+.btn-delete {
+  display: block;
+  text-align: center;
+  margin: 20px 0;
+  color:rgba(230, 67, 64, 0.8);
+}
