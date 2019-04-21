@@ -95,7 +95,7 @@ Page({
   },
 
   onTapGoBack: function (e) {
-    if (this.data.onBackToHome) {
+    if (this.data.onBackToHome || getCurrentPages().length <= 1) {
       wx.switchTab({
         url: '/pages/index/index',
       });
